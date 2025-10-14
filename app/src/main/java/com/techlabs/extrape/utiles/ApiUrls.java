@@ -3,8 +3,8 @@ package com.techlabs.extrape.utiles;
 public class ApiUrls {
 
     // 🔹 Base URL (change this when you move server)
-    public static final String BASE_URL = "http://192.168.0.200/linksaas/api/";
-   // public static final String BASE_URL1 = "http://localhost/linksaas/api";
+    public static final String BASE_URL2 = "http://192.168.0.200/linksaas/api/";
+    public static final String BASE_URL = "http://10.0.2.2/linksaas/api";
 
     // 🔹 API endpoints
     public static final String GET_USER_REELS = BASE_URL + "getUserReels.php";

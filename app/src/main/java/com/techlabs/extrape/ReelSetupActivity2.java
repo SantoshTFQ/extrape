@@ -12,18 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.techlabs.extrape.model.ReelModel;
 import com.techlabs.extrape.utiles.ApiUrls;
 import com.techlabs.extrape.utiles.MySingleton;
-import com.techlabs.extrape.utiles.SharedPrefManager;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ReelSetupActivity extends AppCompatActivity {
+public class ReelSetupActivity2 extends AppCompatActivity {
     RecyclerView recyclerReels;
     ArrayList<ReelModel> reelList = new ArrayList<>();
     ReelAdapter adapter;
@@ -50,15 +48,19 @@ public class ReelSetupActivity extends AppCompatActivity {
 
     private void fetchReels() {
         String url = ApiUrls.GET_USER_REELS + "?user_id=" + userId;
+        Log.d("VOLLEY_DEBUG", "➡️ Fetching reels from URL: " + url);
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
                     try {
+                        Log.d("VOLLEY_DEBUG", "✅ Response: " + response.toString());
                         JSONArray data = response.getJSONArray("data");
                         if (data.length() == 0) {
                             txtNoReels.setVisibility(View.VISIBLE);
                         } else {
                             txtNoReels.setVisibility(View.GONE);
                         }
+
                         reelList.clear();
                         for (int i = 0; i < data.length(); i++) {
                             JSONObject obj = data.getJSONObject(i);
@@ -73,13 +75,28 @@ public class ReelSetupActivity extends AppCompatActivity {
                             m.setDms(obj.optInt("dms_sent", 0));
                             reelList.add(m);
                         }
+
                         adapter.notifyDataSetChanged();
+                        Log.d("VOLLEY_DEBUG", "✅ Reels loaded: " + reelList.size());
                     } catch (Exception e) {
+                        Log.e("VOLLEY_DEBUG", "❌ Parse Error: " + e.getMessage());
                         e.printStackTrace();
                         Toast.makeText(this, "Error parsing data", Toast.LENGTH_SHORT).show();
                     }
                 },
-                error -> Toast.makeText(this, "Failed to load reels: "+error, Toast.LENGTH_LONG).show()
+                error -> {
+                    Log.e("VOLLEY_DEBUG", "❌ Volley Error: " + error.toString());
+                    if (error.networkResponse != null) {
+                        Log.e("VOLLEY_DEBUG", "❌ Response Code: " + error.networkResponse.statusCode);
+                        try {
+                            String body = new String(error.networkResponse.data, "UTF-8");
+                            Log.e("VOLLEY_DEBUG", "❌ Response Body: " + body);
+                        } catch (Exception ignored) {}
+                    }
+                    Toast.makeText(this, "Failed to load reels: " + error.toString(), Toast.LENGTH_LONG).show();
+                    Log.e("VOLLEY_DEBUG", "❌ Response Body: " + error);
+
+                }
         );
 
         MySingleton.getInstance(this).addToRequestQueue(request);
