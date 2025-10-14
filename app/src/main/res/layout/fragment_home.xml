@@ -54,70 +54,11 @@
 
         </GridLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Monthly Revenue"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="8dp"
-            app:cardCornerRadius="8dp">
-            
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="[Chart Placeholder]"
-                android:gravity="center"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Recent Activity"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <androidx.cardview.widget.CardView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardCornerRadius="8dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
-                    <ImageView android:src="@drawable/ic_new_user" style="@style/ActivityIcon"/>
-                    <TextView android:text="New user 'Alex' signed up." style="@style/ActivityText"/>
-                </LinearLayout>
-
-                 <View style="@style/Divider"/>
-
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
-                    <ImageView android:src="@drawable/ic_payment" style="@style/ActivityIcon"/>
-                    <TextView android:text="Invoice #124 has been paid." style="@style/ActivityText"/>
-                </LinearLayout>
-
-                <View style="@style/Divider"/>
-
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
-                    <ImageView android:src="@drawable/ic_report" style="@style/ActivityIcon"/>
-                    <TextView android:text="Weekly report has been generated." style="@style/ActivityText"/>
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
 

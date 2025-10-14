@@ -8,4 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="card_background">#7E57C2</color>
+
+    <!-- Dark Dashboard Colors -->
+    <color name="dashboard_background_dark">#161621</color>
+    <color name="dashboard_card_background_dark">#212130</color>
+    <color name="dashboard_text_primary_dark">#FFFFFF</color>
+    <color name="dashboard_text_secondary_dark">#A0A0B0</color>
+    <color name="dashboard_accent_green">#00D09B</color>
 </resources>

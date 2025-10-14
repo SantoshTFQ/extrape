@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dashboard_background_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dashboard"
+            android:textColor="@color/dashboard_text_primary_dark"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Affiliate Summary"
+            android:textColor="@color/dashboard_text_secondary_dark"
+            android:textSize="18sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/dashboard_card_background_dark"
+            app:cardCornerRadius="16dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/AnalyticsLabel.Dark"
+                    android:text="💰 Total" />
+
+                <TextView
+                    style="@style/AnalyticsValue.Dark"
+                    android:text="₹12,300" />
+
+                <TextView
+                    style="@style/AnalyticsLabel.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="📆 Today" />
+
+                <TextView
+                    style="@style/AnalyticsValue.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="₹180" />
+
+                <TextView
+                    style="@style/AnalyticsLabel.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="🗓 Month" />
+
+                <TextView
+                    style="@style/AnalyticsValue.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="₹2,340" />
+
+                <TextView
+                    style="@style/AnalyticsLabel.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="⏳ Pending" />
+
+                <TextView
+                    style="@style/AnalyticsValue.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="₹540" />
+
+                <TextView
+                    style="@style/AnalyticsLabel.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="🏦 Redeemed" />
+
+                <TextView
+                    style="@style/AnalyticsValue.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="₹8,000" />
+
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Automation Summary"
+            android:textColor="@color/dashboard_text_secondary_dark"
+            android:textSize="18sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/dashboard_card_background_dark"
+            app:cardCornerRadius="16dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/AnalyticsLabel.Dark"
+                    android:text="✉️ DMs Sent" />
+
+                <TextView
+                    style="@style/AnalyticsValue.Dark"
+                    android:text="82" />
+
+                <TextView
+                    style="@style/AnalyticsLabel.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="💬 Comments" />
+
+                <TextView
+                    style="@style/AnalyticsValue.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="40" />
+
+                <TextView
+                    style="@style/AnalyticsLabel.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="🔗 Clicks Today" />
+
+                <TextView
+                    style="@style/AnalyticsValue.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="56" />
+
+                <TextView
+                    style="@style/AnalyticsLabel.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="📈 This Month" />
+
+                <TextView
+                    style="@style/AnalyticsValue.Dark"
+                    android:layout_marginTop="16dp"
+                    android:text="1,240" />
+
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Visitors"
+            android:textColor="@color/dashboard_text_secondary_dark"
+            android:textSize="18sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/dashboard_card_background_dark"
+            app:cardCornerRadius="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="[Chart Placeholder]"
+                android:textColor="@color/dashboard_text_secondary_dark" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

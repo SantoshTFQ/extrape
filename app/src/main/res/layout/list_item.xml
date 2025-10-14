@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Affiliate Product Analytics"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:columnCount="2">
+
+            <TextView style="@style/AnalyticsLabel" android:text="Product ID" />
+            <TextView style="@style/AnalyticsValue" android:id="@+id/product_id" android:text="PROD12345" />
+
+            <TextView style="@style/AnalyticsLabel" android:text="Clicks" />
+            <TextView style="@style/AnalyticsValue" android:id="@+id/clicks" android:text="1,234" />
+
+            <TextView style="@style/AnalyticsLabel" android:text="Price" />
+            <TextView style="@style/AnalyticsValue" android:id="@+id/price" android:text="$99.99" />
+
+            <TextView style="@style/AnalyticsLabel" android:text="Commission" />
+            <TextView style="@style/AnalyticsValue" android:id="@+id/commission" android:text="$10.00" />
+
+            <TextView style="@style/AnalyticsLabel" android:text="Approved Date" />
+            <TextView style="@style/AnalyticsValue" android:id="@+id/approved_date" android:text="2024-08-20" />
+
+            <TextView style="@style/AnalyticsLabel" android:text="Ref ID" />
+            <TextView style="@style/AnalyticsValue" android:id="@+id/ref_id" android:text="REF54321" />
+
+            <TextView style="@style/AnalyticsLabel" android:text="Extra Ref ID" />
+            <TextView style="@style/AnalyticsValue" android:id="@+id/extra_ref_id" android:text="EXTRA9876" />
+
+            <TextView style="@style/AnalyticsLabel" android:text="Status" />
+            <TextView style="@style/AnalyticsValue" android:id="@+id/status" android:text="Approved" android:textColor="@android:color/holo_green_dark"/>
+
+        </GridLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
