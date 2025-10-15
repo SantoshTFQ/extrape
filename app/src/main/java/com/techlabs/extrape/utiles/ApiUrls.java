@@ -4,7 +4,9 @@ public class ApiUrls {
 
     // 🔹 Base URL (change this when you move server)
     public static final String BASE_URL2 = "http://192.168.0.200/linksaas/api/";
-    public static final String BASE_URL = "http://10.0.2.2/linksaas/api";
+    public static final String BASE_URL3 = "http://10.0.2.2/linksaas/api";
+    public static final String BASE_URL = "https://iot.santoshtech.com/linksaas/api/";
+
 
     // 🔹 API endpoints
     public static final String GET_USER_REELS = BASE_URL + "getUserReels.php";

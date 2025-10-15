@@ -58,7 +58,7 @@ public class ReelAdapter extends RecyclerView.Adapter<ReelAdapter.ViewHolder> {
         h.btnGenerate.setOnClickListener(v -> {
             String productUrl = h.inputProductUrl.getText().toString().trim();
             if(productUrl.isEmpty()){Toast.makeText(context,"Enter URL",Toast.LENGTH_SHORT).show(); return;}
-            String url = "https://yourdomain.com/api/generateAffiliate.php";
+            String url = "https://iot.santoshtech.com/api/generateAffiliate.php";
             StringRequest req = new StringRequest(Request.Method.POST, url,
                     resp -> {
                         try {
@@ -66,7 +66,7 @@ public class ReelAdapter extends RecyclerView.Adapter<ReelAdapter.ViewHolder> {
                             h.textAffiliate.setText("Affiliate Link: "+o.getString("affiliate_url"));
                         } catch(Exception e){}
                     },
-                    err -> Toast.makeText(context,"Error generating",Toast.LENGTH_SHORT).show()){
+                    err -> Toast.makeText(context,"Error generating: "+err,Toast.LENGTH_SHORT).show()){
                 @Override
                 protected Map<String,String> getParams(){
                     Map<String,String> p=new HashMap<>();
