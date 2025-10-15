@@ -79,7 +79,10 @@ public class ReelSetupActivity extends AppCompatActivity {
                         Toast.makeText(this, "Error parsing data", Toast.LENGTH_SHORT).show();
                     }
                 },
-                error -> Toast.makeText(this, "Failed to load reels: "+error, Toast.LENGTH_LONG).show()
+                error -> {
+                    Log.e("ReelSetupActivity", "Volley Error: ", error);
+                    Toast.makeText(this, "Failed to load reels", Toast.LENGTH_SHORT).show();
+                }
         );
 
         MySingleton.getInstance(this).addToRequestQueue(request);

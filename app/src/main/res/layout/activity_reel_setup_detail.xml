@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/imgReelThumb"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/gray_bg"
+            android:contentDescription="Reel Thumbnail" />
+
+        <TextView
+            android:id="@+id/txtCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:textStyle="bold"
+            android:text="Reel Caption" />
+
+        <EditText
+            android:id="@+id/edtProductUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Product URL"
+            android:inputType="textUri"
+            android:padding="8dp"
+            android:background="@drawable/rounded_input_bg"/>
+
+        <Button
+            android:id="@+id/btnGenerateLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Generate Affiliate Link"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/purple_700"
+            android:textColor="#FFF"/>
+
+        <TextView
+            android:id="@+id/txtGeneratedLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#2E7D32"
+            android:paddingTop="10dp"
+            android:textStyle="italic"
+            android:visibility="gone"/>
+
+        <Switch
+            android:id="@+id/switchAutomation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="Enable Automation" />
+
+        <EditText
+            android:id="@+id/edtCommentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Auto Comment Text"
+            android:padding="8dp"
+            android:background="@drawable/rounded_input_bg"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/edtDmText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Auto DM Text"
+            android:padding="8dp"
+            android:background="@drawable/rounded_input_bg"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/btnSaveSetup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Settings"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/teal_700"
+            android:textColor="#FFF"/>
+    </LinearLayout>
+</ScrollView>

@@ -12,7 +12,14 @@ public class ApiUrls {
     public static final String GET_USER_REELS = BASE_URL + "getUserReels.php";
     public static final String GENERATE_AFFILIATE = BASE_URL + "generateAffiliate.php";
     public static final String SAVE_REEL_SETUP = BASE_URL + "saveReelSetup.php";
+    public static final String GET_REEL_SETUP = BASE_URL + "getReelSetup.php";
+    public static final String GET_USER_ANALYTICS = BASE_URL + "getUserAnalytics.php";
+    public static final String GET_USER_EARNINGS = BASE_URL + "getUserEarnings.php";
+    public static final String REQUEST_WITHDRAW = BASE_URL + "requestWithdraw.php";
+
     public static final String UPDATE_ANALYTICS = BASE_URL + "updateAnalytics.php";
+    public static final String GET_EARN_HISTORY = BASE_URL + "getEarningHistory.php";
+
 
     // 🔹 Optional future endpoints
     public static final String META_WEBHOOK = BASE_URL + "metaWebhook.php";

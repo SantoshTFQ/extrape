@@ -28,6 +28,17 @@ public class LinksFragment extends Fragment {
             startActivity(intent);
         });
 
+
+        // Set a click listener on the button
+            Button btnAnalytics = view.findViewById(R.id.open_analytics_button);
+            btnAnalytics.setOnClickListener(v -> startActivity(new Intent(getActivity(), AnalyticsActivity.class)));
+
+        Button btnEarning = view.findViewById(R.id.open_earnings_button);
+        btnEarning.setOnClickListener(v -> startActivity(new Intent(getActivity(), EarningsActivity.class)));
+
+        Button btnEarnFilter = view.findViewById(R.id.open_earn_filter_button);
+        btnEarnFilter.setOnClickListener(v -> startActivity(new Intent(getActivity(), EarningHistoryActivity.class)));
+
         //startActivity(new Intent(getActivity(),ReelSetupActivity.class));
         // Create an Intent to open the new Activity
         return view;
