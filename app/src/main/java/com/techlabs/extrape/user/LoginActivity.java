@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         edtPhone = findViewById(R.id.edtPhone);
         btnSendOtp = findViewById(R.id.btnSendOtp);
         mAuth = FirebaseAuth.getInstance();
+        edtPhone.setText("9876543210");
 
         btnSendOtp.setOnClickListener(v -> {
             String phone = edtPhone.getText().toString().trim();

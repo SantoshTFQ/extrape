@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
+import com.techlabs.extrape.utiles.SharedPrefManager;
 import com.techlabs.extrape.utiles.ApiUrls;
 import com.techlabs.extrape.utiles.MySingleton;
 
@@ -23,12 +24,13 @@ public class EarningsActivity extends AppCompatActivity {
 
     TextView txtTotal, txtWithdrawn, txtPending, txtReady;
     Button btnWithdraw;
-    String userId = "1";
+    String userId;// = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_earnings);
+        userId = SharedPrefManager.getInstance(this).getUserId();
 
         txtTotal = findViewById(R.id.txtTotal);
         txtWithdrawn = findViewById(R.id.txtWithdrawn);

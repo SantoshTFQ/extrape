@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.techlabs.extrape.model.ReelModel;
+import com.techlabs.extrape.user.SharedPrefManager;
 import com.techlabs.extrape.utiles.ApiUrls;
 import com.techlabs.extrape.utiles.MySingleton;
 
@@ -38,8 +39,8 @@ public class ReelSetupActivity2 extends AppCompatActivity {
 
         recyclerReels.setLayoutManager(new LinearLayoutManager(this));
 
-        //userId = SharedPrefManager.getInstance(this).getUserId();
-        userId = "1";
+        userId = SharedPrefManager.getInstance(this).getUserId();
+        //userId = "1";
         adapter = new ReelAdapter(reelList, userId, this);
         recyclerReels.setAdapter(adapter);
 

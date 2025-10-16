@@ -36,6 +36,7 @@
         <activity android:name=".EarningHistoryActivity"/>
         <activity android:name=".user.LoginActivity"/>
         <activity android:name=".user.VerifyOtpActivity"/>
+        <activity android:name=".user.HomeActivity"/>
     </application>
 
 </manifest>
