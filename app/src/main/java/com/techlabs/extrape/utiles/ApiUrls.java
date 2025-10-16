@@ -19,6 +19,11 @@ public class ApiUrls {
 
     public static final String UPDATE_ANALYTICS = BASE_URL + "updateAnalytics.php";
     public static final String GET_EARN_HISTORY = BASE_URL + "getEarningHistory.php";
+    /*
+    * 🔹 If you add user login or token*/
+    public static final String SYNC_FIREBASE_USER = BASE_URL + "auth/syncFirebaseUser.php";
+    public static final String REGISTER_USER = BASE_URL + "auth/registerUser.php";
+    public static final String LOGIN_USER = BASE_URL + "auth/loginUser.php";
 
 
     // 🔹 Optional future endpoints
@@ -26,6 +31,6 @@ public class ApiUrls {
     public static final String REFRESH_REELS = BASE_URL + "refreshReels.php"; // (if added later)
 
     // 🔹 If you add user login or token
-    public static final String LOGIN_USER = BASE_URL + "login.php";
-    public static final String REGISTER_USER = BASE_URL + "register.php";
+    //public static final String LOGIN_USER = BASE_URL + "login.php";
+    //public static final String REGISTER_USER = BASE_URL + "register.php";
 }

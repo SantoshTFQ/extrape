@@ -34,6 +34,8 @@
         <activity android:name=".NewActivity" />
         <activity android:name=".ReelSetupActivity" />
         <activity android:name=".EarningHistoryActivity"/>
+        <activity android:name=".user.LoginActivity"/>
+        <activity android:name=".user.VerifyOtpActivity"/>
     </application>
 
 </manifest>

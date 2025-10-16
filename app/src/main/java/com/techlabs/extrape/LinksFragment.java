@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.techlabs.extrape.user.LoginActivity;
+
 public class LinksFragment extends Fragment {
 
     @Nullable
@@ -37,7 +39,7 @@ public class LinksFragment extends Fragment {
         btnEarning.setOnClickListener(v -> startActivity(new Intent(getActivity(), EarningsActivity.class)));
 
         Button btnEarnFilter = view.findViewById(R.id.open_earn_filter_button);
-        btnEarnFilter.setOnClickListener(v -> startActivity(new Intent(getActivity(), EarningHistoryActivity.class)));
+        btnEarnFilter.setOnClickListener(v -> startActivity(new Intent(getActivity(), LoginActivity.class)));
 
         //startActivity(new Intent(getActivity(),ReelSetupActivity.class));
         // Create an Intent to open the new Activity
