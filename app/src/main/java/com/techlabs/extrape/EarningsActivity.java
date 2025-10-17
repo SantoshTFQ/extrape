@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
-import com.techlabs.extrape.utiles.SharedPrefManager;
+import com.techlabs.extrape.user.SharedPrefManager;
 import com.techlabs.extrape.utiles.ApiUrls;
 import com.techlabs.extrape.utiles.MySingleton;
 
@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class EarningsActivity extends AppCompatActivity {
 
-    TextView txtTotal, txtWithdrawn, txtPending, txtReady;
+    TextView txtTotal, txtWithdrawn, txtPending, txtReady,txtPendingWithdrw;
     Button btnWithdraw;
     String userId;// = "1";
 
@@ -34,6 +34,7 @@ public class EarningsActivity extends AppCompatActivity {
 
         txtTotal = findViewById(R.id.txtTotal);
         txtWithdrawn = findViewById(R.id.txtWithdrawn);
+        txtPendingWithdrw = findViewById(R.id.txtWithdrawnPending);
         txtPending = findViewById(R.id.txtPending);
         txtReady = findViewById(R.id.txtReady);
         btnWithdraw = findViewById(R.id.btnWithdraw);

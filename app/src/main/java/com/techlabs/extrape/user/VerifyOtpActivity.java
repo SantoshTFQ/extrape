@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.techlabs.extrape.EarningsActivity;
+import com.techlabs.extrape.MainActivity;
 import com.techlabs.extrape.R;
 import com.techlabs.extrape.utiles.ApiUrls;
 
@@ -34,7 +36,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
     String verificationId, phone;
     FirebaseAuth mAuth;
     TextView txtErrorMsg;
-
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +45,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
         edtOtp = findViewById(R.id.edtOtp);
         btnVerify = findViewById(R.id.btnVerify);
         mAuth = FirebaseAuth.getInstance();
-        //txtErrorMsg.findViewById(R.id.txterror);
-
+        progressBar = findViewById(R.id.progressBar);
         phone = getIntent().getStringExtra("phone");
 
         sendOtp(phone);
@@ -118,6 +119,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
                             public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken token) {
                                 super.onCodeSent(s, token);
                                 verificationId = s;  // ✅ Important — now safe to verify OTP
+                                progressBar.setVisibility(View.GONE);
                                 Toast.makeText(VerifyOtpActivity.this, "OTP sent successfully", Toast.LENGTH_SHORT).show();
                             }
                         })
@@ -133,7 +135,6 @@ public class VerifyOtpActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         // Sync with PHP backend to get internal user_id
                         syncUserWithPHP(user.getUid(), user.getPhoneNumber());
-                        //btnVerify.setText("f_id:" + user.getUid());
                     } else {
                         Toast.makeText(this, "Invalid OTP", Toast.LENGTH_SHORT).show();
                     }
@@ -149,9 +150,8 @@ public class VerifyOtpActivity extends AppCompatActivity {
                         Toast.makeText(this, "responce:"+o.toString(), Toast.LENGTH_SHORT).show();
                         if (o.getString("status").equals("success")) {
                             int userId = o.getInt("user_id");
-                            //SharedPrefManager.getInstance(this).saveUserId(String.valueOf(userId));
-                            com.techlabs.extrape.utiles.SharedPrefManager.getInstance(this).saveUser(String.valueOf(userId),"name");
-                            startActivity(new Intent(this, EarningsActivity.class));
+                            SharedPrefManager.getInstance(this).saveUserId(String.valueOf(userId));
+                            startActivity(new Intent(this, MainActivity.class));
                             finish();
                         } else {
                             Toast.makeText(this, o.optString("message"), Toast.LENGTH_SHORT).show();

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.techlabs.extrape.user.SharedPrefManager;
 import com.techlabs.extrape.utiles.ApiUrls;
 import com.techlabs.extrape.utiles.MySingleton;
 
@@ -24,12 +25,13 @@ import java.util.Map;
 public class AnalyticsActivity extends AppCompatActivity {
 
     TextView txtTodayClicks, txtMonthClicks, txtTotalClicks, txtDMs, txtComments;
-    String userId = "1"; // get from SharedPrefManager later
+    String userId;// = "1"; // get from SharedPrefManager later
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analytics);
+        userId = SharedPrefManager.getInstance(this).getUserId();
 
         txtTodayClicks = findViewById(R.id.txtTodayClicks);
         txtMonthClicks = findViewById(R.id.txtMonthClicks);

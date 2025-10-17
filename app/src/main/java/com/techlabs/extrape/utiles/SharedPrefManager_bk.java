@@ -3,15 +3,15 @@ package com.techlabs.extrape.utiles;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class SharedPrefManager {
+public class SharedPrefManager_bk {
     private static final String PREF_NAME = "myAppPrefs";
-    private static SharedPrefManager instance;
+    private static SharedPrefManager_bk instance;
     private Context ctx;
 
-    private SharedPrefManager(Context ctx){ this.ctx = ctx; }
+    private SharedPrefManager_bk(Context ctx){ this.ctx = ctx; }
 
-    public static synchronized SharedPrefManager getInstance(Context ctx){
-        if(instance==null) instance = new SharedPrefManager(ctx);
+    public static synchronized SharedPrefManager_bk getInstance(Context ctx){
+        if(instance==null) instance = new SharedPrefManager_bk(ctx);
         return instance;
     }
 

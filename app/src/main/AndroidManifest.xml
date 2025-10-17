@@ -23,7 +23,7 @@
             android:name=".ReelSetupDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".user.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,10 +33,11 @@
         </activity>
         <activity android:name=".NewActivity" />
         <activity android:name=".ReelSetupActivity" />
-        <activity android:name=".EarningHistoryActivity"/>
-        <activity android:name=".user.LoginActivity"/>
-        <activity android:name=".user.VerifyOtpActivity"/>
-        <activity android:name=".user.HomeActivity"/>
+        <activity android:name=".EarningHistoryActivity" />
+        <activity android:name=".user.LoginActivity" />
+        <activity android:name=".user.VerifyOtpActivity" />
+        <activity android:name=".user.HomeActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.techlabs.extrape;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -8,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.techlabs.extrape.user.LoginActivity;
+import com.techlabs.extrape.user.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +23,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+//        if (mAuth.getCurrentUser() == null ||
+//                SharedPrefManager.getInstance(this).getUserId() == null) {
+//            // Not logged in
+//            startActivity(new Intent(this, LoginActivity.class));
+//            finish();
+//            return;
+//        }
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
