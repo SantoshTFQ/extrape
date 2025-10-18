@@ -74,7 +74,7 @@
         <item name="itemTextAppearanceInactive">@style/BottomNavigationView.Text</item>
     </style>
 
-    <style name="BottomNavigationView.Text" parent="TextAppearance.AppCompat.Caption">
+    <style name="BottomNavigationView.Text" parent="TextAppearance.AppCompat.Display1">
         <item name="android:textSize">@dimen/bottom_nav_text_size</item>
     </style>
 

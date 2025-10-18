@@ -46,6 +46,14 @@
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/purple_700"
             android:textColor="#FFF"/>
+        <Button
+            android:id="@+id/btnChangeLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change Affiliate Link"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/purple_700"
+            android:textColor="#FFF"/>
 
         <TextView
             android:id="@+id/txtGeneratedLink"

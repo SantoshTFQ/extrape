@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -25,7 +26,7 @@ public class ReelSetupDetailActivity extends AppCompatActivity {
     TextView txtCaption, txtGeneratedLink;
     EditText edtProductUrl, edtCommentText, edtDmText;
     Switch switchAutomation;
-    Button btnGenerateLink, btnSaveSetup;
+    Button btnGenerateLink, btnChangeLink, btnSaveSetup;
     ProgressDialog progressDialog;
 
     String userId = "1", reelId, caption, thumb;
@@ -40,6 +41,7 @@ public class ReelSetupDetailActivity extends AppCompatActivity {
         txtCaption = findViewById(R.id.txtCaption);
         edtProductUrl = findViewById(R.id.edtProductUrl);
         btnGenerateLink = findViewById(R.id.btnGenerateLink);
+        btnChangeLink = findViewById(R.id.btnChangeLink);
         txtGeneratedLink = findViewById(R.id.txtGeneratedLink);
         switchAutomation = findViewById(R.id.switchAutomation);
         edtCommentText = findViewById(R.id.edtCommentText);
@@ -58,6 +60,15 @@ public class ReelSetupDetailActivity extends AppCompatActivity {
         Glide.with(this).load(thumb).into(imgReelThumb);
 
         btnGenerateLink.setOnClickListener(v -> generateAffiliateLink());
+        btnChangeLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                edtProductUrl.setVisibility(View.VISIBLE);
+                btnGenerateLink.setVisibility(View.VISIBLE);
+                btnChangeLink.setVisibility(View.GONE);
+            }
+        });
+
         btnSaveSetup.setOnClickListener(v -> saveSetup());
         loadExistingSetup();
 
@@ -84,10 +95,26 @@ public class ReelSetupDetailActivity extends AppCompatActivity {
                                 generatedLink = affiliateUrl;
                                 txtGeneratedLink.setText("Affiliate Link: " + affiliateUrl);
                                 txtGeneratedLink.setVisibility(View.VISIBLE);
+                                edtProductUrl.setVisibility(View.GONE);
+                                btnGenerateLink.setVisibility(View.GONE);
+
+                            } else {
+                                btnGenerateLink.setVisibility(View.VISIBLE);
+                                edtProductUrl.setVisibility(View.VISIBLE);
+                                edtProductUrl.setVisibility(View.GONE);
+                                edtProductUrl.setVisibility(View.GONE);
+
                             }
                             switchAutomation.setChecked(automation);
                             edtCommentText.setText(commentText);
                             edtDmText.setText(dmText);
+                            if (automation) {
+                                edtCommentText.setVisibility(View.VISIBLE);
+                                edtDmText.setVisibility(View.VISIBLE);
+                            } else {
+                                edtCommentText.setVisibility(View.GONE);
+                                edtDmText.setVisibility(View.GONE);
+                            }
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -120,7 +147,7 @@ public class ReelSetupDetailActivity extends AppCompatActivity {
                             generatedLink = obj.getString("affiliate_url");
                             txtGeneratedLink.setText("Affiliate Link: " + generatedLink);
                             txtGeneratedLink.setVisibility(View.VISIBLE);
-                            edtDmText.setText("This is Product Link:\n"+ generatedLink);
+                            edtDmText.setText("This is Product Link:\n" + generatedLink);
                             edtCommentText.setText("Thanks for using Extrape!, Check DM For Link");
                             Toast.makeText(this, "Link generated successfully!", Toast.LENGTH_SHORT).show();
                         } else {

@@ -29,7 +29,7 @@ public class EarningsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_earnings);
+        setContentView(R.layout.activity_earnings_new);
         userId = SharedPrefManager.getInstance(this).getUserId();
 
         txtTotal = findViewById(R.id.txtTotal);
