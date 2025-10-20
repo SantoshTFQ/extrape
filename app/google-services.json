@@ -1,0 +1,163 @@
+{
+  "project_info": {
+    "project_number": "809812555765",
+    "firebase_url": "https://gate-2-616cb.firebaseio.com",
+    "project_id": "gate-2-616cb",
+    "storage_bucket": "gate-2-616cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809812555765:android:438a4cd3df2ef76bdc52bc",
+        "android_client_info": {
+          "package_name": "com.techlab.calldetector"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyKdP_eXgb-5bwUMrQKsP3qYmy1vFlLrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809812555765:android:50c4001db7742b4ddc52bc",
+        "android_client_info": {
+          "package_name": "com.techlab.face2pay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyKdP_eXgb-5bwUMrQKsP3qYmy1vFlLrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809812555765:android:3608cafc128389a6dc52bc",
+        "android_client_info": {
+          "package_name": "com.techlab.fcm3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyKdP_eXgb-5bwUMrQKsP3qYmy1vFlLrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809812555765:android:5e9d8b9f1e15d839dc52bc",
+        "android_client_info": {
+          "package_name": "com.techlab.referdemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyKdP_eXgb-5bwUMrQKsP3qYmy1vFlLrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809812555765:android:3d7d5f21db7a1b32dc52bc",
+        "android_client_info": {
+          "package_name": "com.techlab.remotecalllog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyKdP_eXgb-5bwUMrQKsP3qYmy1vFlLrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809812555765:android:7758ad93fb14f298dc52bc",
+        "android_client_info": {
+          "package_name": "com.techlab.remotecalllogadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyKdP_eXgb-5bwUMrQKsP3qYmy1vFlLrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809812555765:android:246cf35596f4166adc52bc",
+        "android_client_info": {
+          "package_name": "com.techlab.tallyapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyKdP_eXgb-5bwUMrQKsP3qYmy1vFlLrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809812555765:android:c1a8560321652863dc52bc",
+        "android_client_info": {
+          "package_name": "com.techlabs.extrape"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyKdP_eXgb-5bwUMrQKsP3qYmy1vFlLrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
