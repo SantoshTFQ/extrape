@@ -7,16 +7,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.techlabs.extrape.model.ReelModel;
+import com.techlabs.extrape.user.SharedPrefManager;
 import com.techlabs.extrape.utiles.ApiUrls;
 import com.techlabs.extrape.utiles.MySingleton;
-import com.techlabs.extrape.user.SharedPrefManager;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,11 +23,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ReelSetupActivity extends AppCompatActivity {
+
     RecyclerView recyclerReels;
+    TextView txtNoReels;
     ArrayList<ReelModel> reelList = new ArrayList<>();
     ReelAdapter adapter;
     String userId;
-    TextView txtNoReels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +38,15 @@ public class ReelSetupActivity extends AppCompatActivity {
         recyclerReels = findViewById(R.id.recyclerReels);
         txtNoReels = findViewById(R.id.txtNoReelsfound);
 
-        recyclerReels.setLayoutManager(new LinearLayoutManager(this));
+        // ✅ 3-column grid
+        //recyclerReels.setLayoutManager(new GridLayoutManager(this, 3));
+        //recyclerReels.setHasFixedSize(true);
+        recyclerReels.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerReels.setHasFixedSize(true);
+        recyclerReels.addItemDecoration(new GridSpacingItemDecoration(3)); // optional spacing
+
 
         userId = SharedPrefManager.getInstance(this).getUserId();
-        //userId = "1";
         adapter = new ReelAdapter(reelList, userId, this);
         recyclerReels.setAdapter(adapter);
 
@@ -54,12 +59,13 @@ public class ReelSetupActivity extends AppCompatActivity {
                 response -> {
                     try {
                         JSONArray data = response.getJSONArray("data");
+                        reelList.clear();
                         if (data.length() == 0) {
                             txtNoReels.setVisibility(View.VISIBLE);
                         } else {
                             txtNoReels.setVisibility(View.GONE);
                         }
-                        reelList.clear();
+
                         for (int i = 0; i < data.length(); i++) {
                             JSONObject obj = data.getJSONObject(i);
                             ReelModel m = new ReelModel();
@@ -69,8 +75,6 @@ public class ReelSetupActivity extends AppCompatActivity {
                             m.setPermalink(obj.getString("permalink"));
                             m.setConfigured(obj.getInt("is_configured") == 1);
                             m.setAutomationEnabled(obj.optInt("automation_enabled", 0) == 1);
-                            m.setClicks(obj.optInt("total_clicks", 0));
-                            m.setDms(obj.optInt("dms_sent", 0));
                             reelList.add(m);
                         }
                         adapter.notifyDataSetChanged();
@@ -82,10 +86,8 @@ public class ReelSetupActivity extends AppCompatActivity {
                 error -> {
                     Log.e("ReelSetupActivity", "Volley Error: ", error);
                     Toast.makeText(this, "Failed to load reels", Toast.LENGTH_SHORT).show();
-                }
-        );
+                });
 
         MySingleton.getInstance(this).addToRequestQueue(request);
     }
-
 }

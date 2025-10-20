@@ -1,8 +1,10 @@
 package com.techlabs.extrape;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ import com.techlabs.extrape.user.SharedPrefManager;
 import com.techlabs.extrape.utiles.ApiUrls;
 import com.techlabs.extrape.utiles.MySingleton;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -22,9 +25,10 @@ import java.util.Map;
 
 public class EarningsActivity extends AppCompatActivity {
 
-    TextView txtTotal, txtWithdrawn, txtPending, txtReady,txtPendingWithdrw;
+    TextView txtTotal, txtWithdrawn, txtPending, txtReady, txtPendingWithdrw;
+    TextView txtClicks, txtCTA, txtDMs, txtComments;
+    String userId;// = "1"; // get from SharedPrefManager later
     Button btnWithdraw;
-    String userId;// = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,13 @@ public class EarningsActivity extends AppCompatActivity {
         txtReady = findViewById(R.id.txtReady);
         btnWithdraw = findViewById(R.id.btnWithdraw);
 
+        txtClicks = findViewById(R.id.txtlinkClicks);
+        txtCTA = findViewById(R.id.txtCTAID);
+        txtComments = findViewById(R.id.txtCommentSent);
+        txtDMs = findViewById(R.id.txtDmSent);
+
         fetchEarnings();
+        fetchAnalytics();
 
         btnWithdraw.setOnClickListener(v -> {
             String ready = txtReady.getText().toString().replace("₹", "").trim();
@@ -65,6 +75,40 @@ public class EarningsActivity extends AppCompatActivity {
 
     }
 
+    private void fetchAnalytics() {
+        ProgressDialog dialog = ProgressDialog.show(this, "Loading Analytics", "Please wait...", false, false);
+        String url = ApiUrls.GET_USER_ANALYTICS + "?user_id=" + userId;
+
+        StringRequest req = new StringRequest(Request.Method.GET, url,
+                response -> {
+                    dialog.dismiss();
+                    try {
+                        JSONObject obj = new JSONObject(response);
+                        if (obj.getString("status").equals("success")) {
+                            JSONObject data = obj.getJSONObject("data");
+                            txtClicks.setText(data.optString("total_clicks", "0"));
+                            double CTA = (((double) ((data.optInt("total_comments", 0) + data.optInt("total_dms", 0)) / 2) / data.optInt("total_clicks", 0)) * 100);
+                            String formattedNumber = String.format("%.2f", CTA);
+                            txtCTA.setText(formattedNumber + "%");
+                            txtDMs.setText(data.optString("total_dms", "0"));
+                            txtComments.setText(data.optString("total_comments", "0"));
+                        } else {
+                            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        Toast.makeText(this, "Parse Error", Toast.LENGTH_SHORT).show();
+                        Log.e("ANALYTICS", e.toString());
+                    }
+                },
+                error -> {
+                    dialog.dismiss();
+                    Toast.makeText(this, "Network Error_analytics: " + error.toString(), Toast.LENGTH_SHORT).show();
+                    Log.e("ANALYTICS_ERR", error.toString());
+                });
+
+        MySingleton.getInstance(this).addToRequestQueue(req);
+    }
+
     private void fetchEarnings() {
         String url = ApiUrls.GET_USER_EARNINGS + "?user_id=" + userId;
         StringRequest req = new StringRequest(Request.Method.GET, url,
@@ -82,7 +126,7 @@ public class EarningsActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 },
-                err -> Toast.makeText(this, "Network error", Toast.LENGTH_SHORT).show()
+                err -> Toast.makeText(this, "Network error_earnings", Toast.LENGTH_SHORT).show()
         );
         MySingleton.getInstance(this).addToRequestQueue(req);
     }

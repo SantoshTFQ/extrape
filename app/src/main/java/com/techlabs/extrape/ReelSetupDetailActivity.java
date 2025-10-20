@@ -30,7 +30,7 @@ public class ReelSetupDetailActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
 
     String userId = "1", reelId, caption, thumb;
-    String generatedLink = "";
+    String generatedLink = "", trackingLink = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,11 +144,16 @@ public class ReelSetupDetailActivity extends AppCompatActivity {
                     try {
                         JSONObject obj = new JSONObject(response);
                         if (obj.getString("status").equals("success")) {
-                            generatedLink = obj.getString("affiliate_url");
-                            txtGeneratedLink.setText("Affiliate Link: " + generatedLink);
+                            String affiliate = obj.optString("affiliate_url");
+                            String tracking = obj.optString("tracking_url");
+                            //generatedLink = affiliate.isEmpty() ? tracking : affiliate;
+                            generatedLink = affiliate;
+                            trackingLink = tracking;
+
+                            txtGeneratedLink.setText("Affiliate Link: " + generatedLink+"\n" + "Tracking Link: " + trackingLink );
                             txtGeneratedLink.setVisibility(View.VISIBLE);
-                            edtDmText.setText("This is Product Link:\n" + generatedLink);
-                            edtCommentText.setText("Thanks for using Extrape!, Check DM For Link");
+                            edtDmText.setText("Product Link:\n" + generatedLink);
+                            edtCommentText.setText("Thanks for using Extrape! Check DM for the link.");
                             Toast.makeText(this, "Link generated successfully!", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(this, "Failed: " + obj.getString("message"), Toast.LENGTH_SHORT).show();
@@ -167,6 +172,7 @@ public class ReelSetupDetailActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("user_id", userId);
                 params.put("product_url", productUrl);
+                params.put("ig_media_id", reelId);
                 return params;
             }
         };
@@ -212,6 +218,7 @@ public class ReelSetupDetailActivity extends AppCompatActivity {
                 params.put("user_id", userId);
                 params.put("ig_media_id", reelId);
                 params.put("affiliate_url", generatedLink);
+                params.put("tracking_url", trackingLink);
                 params.put("automation_enabled", automation);
                 params.put("comment_text", commentText);
                 params.put("dm_text", dmText);

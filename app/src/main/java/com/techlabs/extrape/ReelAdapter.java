@@ -32,7 +32,7 @@ public class ReelAdapter extends RecyclerView.Adapter<ReelAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_reel_setup, parent, false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_reel_setup2, parent, false));
     }
 
     @Override
@@ -59,8 +59,12 @@ public class ReelAdapter extends RecyclerView.Adapter<ReelAdapter.ViewHolder> {
         if (m.isAutomationEnabled()) {
             h.textAutomation.setVisibility(View.VISIBLE);
             h.textAutomation.setText("⚙️ Automation ON");
+            h.textAutomation.setTextColor(context.getResources().getColor(android.R.color.holo_green_dark));
+
         } else {
-            h.textAutomation.setVisibility(View.GONE);
+            h.textAutomation.setVisibility(View.VISIBLE);
+            h.textAutomation.setText("⚙️ Automation OFF");
+            h.textAutomation.setTextColor(context.getResources().getColor(android.R.color.holo_red_dark));
         }
 
         // Click to open detail setup screen

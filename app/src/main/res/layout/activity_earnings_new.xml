@@ -22,62 +22,20 @@
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <!-- Total Earnings -->
-        <androidx.cardview.widget.CardView
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="#FFFFFF"
-            card_view:cardCornerRadius="10dp"
-            card_view:cardElevation="6dp">
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/border_drawable"
+            android:padding="2dp">
 
-            <LinearLayout
+            <!-- Total Earnings -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="12dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="80dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total Earnings (₹)"
-                        android:textColor="#777"
-                        android:textSize="24sp"/>
-
-                    <TextView
-                        android:id="@+id/txtTotal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0.00"
-                        android:textColor="#000"
-                        android:textSize="36sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="#FFFFFF"
-            card_view:cardCornerRadius="10dp"
-            card_view:cardElevation="6dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:background="#FFFFFF"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -86,265 +44,327 @@
                     android:orientation="horizontal"
                     android:padding="12dp">
 
-                    <!-- Withdrawn -->
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
+                        android:layout_height="80dp"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Withdrawn (₹)"
+                            android:text="Total Earnings (₹)"
                             android:textColor="#777"
-                            android:textSize="14sp" />
+                            android:textSize="24sp" />
 
                         <TextView
-                            android:id="@+id/txtWithdrawn"
+                            android:id="@+id/txtTotal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0.00"
-                            android:textColor="#2E7D32"
-                            android:textSize="26sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- Withdrawn Pending-->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pending Withdrawn (₹)"
-                            android:textColor="#777"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/txtWithdrawnPending"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0.00"
-                            android:textColor="#2E7D32"
-                            android:textSize="26sp"
+                            android:textColor="#000"
+                            android:textSize="36sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/border_drawable"
+            android:padding="2dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_border_background"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-                    <!-- Ready to Withdraw -->
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <!-- Withdrawn -->
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Ready to Withdraw (₹)"
-                            android:textColor="#777"
-                            android:textSize="14sp" />
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/txtReady"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Withdrawn (₹)"
+                                android:textColor="#777"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtWithdrawn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textColor="#2E7D32"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Withdrawn Pending-->
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="0.00"
-                            android:textColor="#0D47A1"
-                            android:textSize="26sp"
-                            android:textStyle="bold" />
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pending Withdrawn (₹)"
+                                android:textColor="#777"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtWithdrawnPending"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textColor="#2E7D32"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
                     </LinearLayout>
-                    <!-- Pending Approval -->
+
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <!-- Ready to Withdraw -->
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Pending Approval Commision(₹)"
-                            android:textColor="#777"
-                            android:textSize="14sp" />
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/txtPending"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ready to Withdraw (₹)"
+                                android:textColor="#777"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtReady"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textColor="#0D47A1"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <!-- Pending Approval -->
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="0.00"
-                            android:textColor="#E65100"
-                            android:textSize="26sp"
-                            android:textStyle="bold" />
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pending Approval Commision(₹)"
+                                android:textColor="#777"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtPending"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textColor="#E65100"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
 
         <!-- Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:text="💰 Automation Overview"
             android:textColor="#000000"
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <androidx.cardview.widget.CardView
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="#FFFFFF"
-            card_view:cardCornerRadius="10dp"
-            card_view:cardElevation="6dp">
+            android:background="@drawable/border_drawable"
+            android:padding="2dp">
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:background="#FFFFFF"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-                    <!-- Total clicks -->
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <!-- Total clicks -->
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text=" Link Clicks"
-                            android:textColor="#777"
-                            android:textSize="14sp" />
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/txtlinkClicks"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" Link Clicks"
+                                android:textColor="#777"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtlinkClicks"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#2E7D32"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- CTA-->
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="#2E7D32"
-                            android:textSize="26sp"
-                            android:textStyle="bold" />
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="CTA"
+                                android:textColor="#777"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtCTAID"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#2E7D32"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
                     </LinearLayout>
 
-                    <!-- CTA-->
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <!-- Comment Sent -->
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="CTA"
-                            android:textColor="#777"
-                            android:textSize="14sp" />
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/txtCTA"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Comments Sent"
+                                android:textColor="#777"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtCommentSent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#0D47A1"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- DM Sent -->
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="#2E7D32"
-                            android:textSize="26sp"
-                            android:textStyle="bold" />
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DM Sent"
+                                android:textColor="#777"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtDmSent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#E65100"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
                     </LinearLayout>
+
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <!-- Comment Sent -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Comments Sent"
-                            android:textColor="#777"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/txtCommentSent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="#0D47A1"
-                            android:textSize="26sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- DM Sent -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="DM Sent"
-                            android:textColor="#777"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/txtDmSent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="#E65100"
-                            android:textSize="26sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
 
         <Button
             android:id="@+id/btnWithdraw"
@@ -359,7 +379,7 @@
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
     </LinearLayout>
 </ScrollView>

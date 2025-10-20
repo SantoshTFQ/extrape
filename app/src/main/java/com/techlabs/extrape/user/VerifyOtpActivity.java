@@ -160,7 +160,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 },
-                err -> Toast.makeText(this, "Network error", Toast.LENGTH_SHORT).show()) {
+                err -> Toast.makeText(this, "Network error_verify_otp", Toast.LENGTH_SHORT).show()) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> p = new HashMap<>();
